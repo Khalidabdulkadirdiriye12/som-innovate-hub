@@ -58,6 +58,16 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'hero-gradient': 'var(--hero-gradient)',
+      },
+      boxShadow: {
+        'primary': 'var(--shadow-primary)',
+        'soft': 'var(--shadow-soft)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
