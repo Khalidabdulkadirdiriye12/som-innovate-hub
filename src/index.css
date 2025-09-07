@@ -37,6 +37,7 @@ All colors MUST be HSL.
     --ring: 158 89% 30%;
 
     /* Custom design tokens */
+    --navbar-bg: 220 13% 98%; /* #f9fafb */
     --hero-gradient: linear-gradient(135deg, hsl(158 89% 30%), hsl(158 89% 40%));
     --section-bg: 210 20% 98%;
     --text-muted: 215 25% 55%;

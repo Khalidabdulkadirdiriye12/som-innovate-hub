@@ -2,6 +2,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+import aboutHero from "@/assets/about-hero.jpg";
+import productDataflow from "@/assets/product-dataflow.png";
+import productSecureVault from "@/assets/product-securevault.png";
+import productCloudSync from "@/assets/product-cloudsync.png";
+import productAI from "@/assets/product-ai.png";
 
 const services = {
   "Core Solutions": [
@@ -28,45 +34,84 @@ const services = {
 };
 
 const products = [
-  { name: "DataFlow Pro", desc: "Advanced data pipeline management" },
-  { name: "SecureVault", desc: "Enterprise security management" },
-  { name: "CloudSync", desc: "Multi-cloud synchronization platform" },
-  { name: "AI Assistant", desc: "Custom AI-powered business solutions" },
+  { name: "DataFlow Pro", desc: "Advanced data pipeline management", image: productDataflow },
+  { name: "SecureVault", desc: "Enterprise security management", image: productSecureVault },
+  { name: "CloudSync", desc: "Multi-cloud synchronization platform", image: productCloudSync },
+  { name: "AI Assistant", desc: "Custom AI-powered business solutions", image: productAI },
 ];
+
+const aboutInfo = {
+  title: "About SOM Innovations",
+  description: "Leading technology solutions provider specializing in AI, cybersecurity, and digital transformation. We empower businesses with cutting-edge tech solutions.",
+  image: aboutHero
+};
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--navbar-bg))] backdrop-blur-sm border-b border-border/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-primary">SOM Innovations</h1>
-            </div>
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="SOM Innovations" className="w-10 h-10" />
+            <h1 className="text-xl font-bold text-primary">SOM Innovations</h1>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-smooth">
+              <a href="#home" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Home
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-smooth">
-                About Us
-              </a>
               
-              {/* Services Dropdown */}
+              {/* About Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsAboutOpen(true)}
+                onMouseLeave={() => setIsAboutOpen(false)}
+              >
+                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
+                  About Us <ChevronDown className="ml-1 w-4 h-4" />
+                </button>
+                <AnimatePresence>
+                  {isAboutOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg z-50"
+                    >
+                      <div className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <img 
+                            src={aboutInfo.image} 
+                            alt="About us" 
+                            className="w-20 h-20 rounded-lg object-cover flex-shrink-0"
+                          />
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-2">{aboutInfo.title}</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{aboutInfo.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              
+              {/* Services Dropdown - Horizontal */}
               <div 
                 className="relative"
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center text-foreground hover:text-primary transition-smooth">
+                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
                   Services <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
                 <AnimatePresence>
@@ -76,35 +121,37 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-96 bg-card border border-border rounded-lg shadow-soft z-50"
+                      className="absolute top-full left-0 mt-2 w-[800px] bg-background border border-border rounded-lg shadow-lg z-50"
                     >
                       <div className="p-6">
-                        {Object.entries(services).map(([category, items]) => (
-                          <div key={category} className="mb-6 last:mb-0">
-                            <h3 className="font-semibold text-primary mb-3">{category}</h3>
-                            <div className="space-y-2">
-                              {items.map((service) => (
-                                <div key={service.name} className="p-2 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
-                                  <div className="font-medium text-sm text-foreground">{service.name}</div>
-                                  <div className="text-xs text-muted-foreground">{service.desc}</div>
-                                </div>
-                              ))}
+                        <div className="grid grid-cols-3 gap-6">
+                          {Object.entries(services).map(([category, items]) => (
+                            <div key={category}>
+                              <h3 className="font-semibold text-primary mb-3 text-sm">{category}</h3>
+                              <div className="space-y-2">
+                                {items.map((service) => (
+                                  <div key={service.name} className="p-2 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
+                                    <div className="font-medium text-xs text-foreground">{service.name}</div>
+                                    <div className="text-xs text-muted-foreground mt-1">{service.desc}</div>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* Products Dropdown */}
+              {/* Products Dropdown - Horizontal with Images */}
               <div 
                 className="relative"
                 onMouseEnter={() => setIsProductsOpen(true)}
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
-                <button className="flex items-center text-foreground hover:text-primary transition-smooth">
+                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
                   Products <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
                 <AnimatePresence>
@@ -114,28 +161,39 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-72 bg-card border border-border rounded-lg shadow-soft z-50"
+                      className="absolute top-full left-0 mt-2 w-96 bg-background border border-border rounded-lg shadow-lg z-50"
                     >
                       <div className="p-4">
-                        {products.map((product) => (
-                          <div key={product.name} className="p-3 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
-                            <div className="font-medium text-foreground">{product.name}</div>
-                            <div className="text-sm text-muted-foreground">{product.desc}</div>
-                          </div>
-                        ))}
+                        <div className="grid grid-cols-2 gap-3">
+                          {products.map((product) => (
+                            <div key={product.name} className="p-3 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
+                              <div className="flex items-center space-x-3">
+                                <img 
+                                  src={product.image} 
+                                  alt={product.name} 
+                                  className="w-10 h-10 rounded object-cover flex-shrink-0"
+                                />
+                                <div>
+                                  <div className="font-medium text-sm text-foreground">{product.name}</div>
+                                  <div className="text-xs text-muted-foreground">{product.desc}</div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              <a href="#team" className="text-foreground hover:text-primary transition-smooth">
+              <a href="#team" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Team
               </a>
-              <a href="#clients" className="text-foreground hover:text-primary transition-smooth">
+              <a href="#clients" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Clients
               </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-smooth">
+              <a href="#contact" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Contact
               </a>
             </div>
@@ -143,7 +201,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
-            <Button variant="default" className="shadow-primary">
+            <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
               Get Started
             </Button>
           </div>
@@ -152,7 +210,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground hover:text-primary transition-smooth"
+              className="text-slate-700 hover:text-primary transition-smooth"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -166,32 +224,32 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-card border-t border-border"
+              className="md:hidden bg-background border-t border-border"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#home" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Home
                 </a>
-                <a href="#about" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   About Us
                 </a>
-                <a href="#services" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Services
                 </a>
-                <a href="#products" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#products" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Products
                 </a>
-                <a href="#team" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#team" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Team
                 </a>
-                <a href="#clients" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#clients" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Clients
                 </a>
-                <a href="#contact" className="block px-3 py-2 text-foreground hover:text-primary transition-smooth">
+                <a href="#contact" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Contact
                 </a>
                 <div className="px-3 py-2">
-                  <Button variant="default" className="w-full shadow-primary">
+                  <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
                     Get Started
                   </Button>
                 </div>
