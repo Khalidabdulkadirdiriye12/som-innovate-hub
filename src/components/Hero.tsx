@@ -5,7 +5,15 @@ import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5" />
+
       {/* Tech Grid Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="grid grid-cols-8 grid-rows-8 h-full w-full">

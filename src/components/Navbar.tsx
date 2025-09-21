@@ -66,9 +66,9 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link to="/" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              <a href="#home" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Home
-              </Link>
+              </a>
               
               {/* About Dropdown */}
               <div 
@@ -76,9 +76,9 @@ const Navbar = () => {
                 onMouseEnter={() => setIsAboutOpen(true)}
                 onMouseLeave={() => setIsAboutOpen(false)}
               >
-                <Link to="/about" className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
+                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
                   About Us <ChevronDown className="ml-1 w-4 h-4" />
-                </Link>
+                </button>
                 <AnimatePresence>
                   {isAboutOpen && (
                     <motion.div
@@ -191,18 +191,24 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              <Link to="/pricing" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              <a href="#services" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                Services
+              </a>
+              <a href="#products" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                Products
+              </a>
+              <a href="#pricing" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Pricing
-              </Link>
-              <Link to="/team" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              </a>
+              <a href="#team" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Team
-              </Link>
-              <Link to="/clients" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              </a>
+              <a href="#clients" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Clients
-              </Link>
-              <Link to="/contact" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              </a>
+              <a href="#contact" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Contact
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -234,27 +240,30 @@ const Navbar = () => {
               className="md:hidden bg-background border-t border-border"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link to="/" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <a href="#home" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Home
-                </Link>
-                <Link to="/about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   About Us
-                </Link>
-                <Link to="/services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Services
-                </Link>
-                <Link to="/pricing" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#products" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                  Products
+                </a>
+                <a href="#pricing" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Pricing
-                </Link>
-                <Link to="/team" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#team" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Team
-                </Link>
-                <Link to="/clients" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#clients" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Clients
-                </Link>
-                <Link to="/contact" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                </a>
+                <a href="#contact" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Contact
-                </Link>
+                </a>
                 <div className="px-3 py-2">
                   <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
                     Get Started

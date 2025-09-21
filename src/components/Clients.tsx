@@ -1,15 +1,38 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import clientLogos from "@/assets/client-logos.jpg";
+import clientDarulUlum from "@/assets/client-darul-ulum.png";
+import clientGuryoHub from "@/assets/client-guryo-hub.jpeg";
+import clientBiyoDiid from "@/assets/client-biyo-diid.png";
+import clientMustaqbal from "@/assets/client-mustaqbal.png";
+import clientSamaha from "@/assets/client-samaha.png";
 
 const Clients = () => {
   const clients = [
-    { name: "TechCorp", logo: "TC" },
-    { name: "DataFlow Solutions", logo: "DFS" },
-    { name: "InnovateLab", logo: "IL" },
-    { name: "CloudSync Pro", logo: "CSP" },
-    { name: "SecureVault Inc", logo: "SVI" },
-    { name: "AI Dynamics", logo: "AID" }
+    {
+      name: "Darul Ulum Educational Centre",
+      logo: clientDarulUlum,
+      category: "Education"
+    },
+    {
+      name: "GuryoHub",
+      logo: clientGuryoHub,
+      category: "Technology Hub"
+    },
+    {
+      name: "Biyo-Diid",
+      logo: clientBiyoDiid,
+      category: "Business Solutions"
+    },
+    {
+      name: "Almustaqbal University", 
+      logo: clientMustaqbal,
+      category: "Higher Education"
+    },
+    {
+      name: "Samaha Institute of Technology",
+      logo: clientSamaha,
+      category: "Technology Institute"
+    }
   ];
 
   const testimonials = [
@@ -61,7 +84,7 @@ const Clients = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-20"
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {clients.map((client, index) => (
               <motion.div
                 key={client.name}
@@ -71,10 +94,16 @@ const Clients = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center group"
               >
-                <div className="w-20 h-20 bg-card rounded-xl shadow-soft flex items-center justify-center mb-3 group-hover:shadow-primary transition-all duration-300">
-                  <span className="text-2xl font-bold text-primary">{client.logo}</span>
+                <div className="bg-card rounded-xl shadow-soft p-4 group-hover:shadow-primary transition-all duration-300 w-full h-24 flex items-center justify-center">
+                  <img 
+                    src={client.logo} 
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
+                  />
                 </div>
-                <span className="text-sm text-muted-foreground text-center">{client.name}</span>
+                <span className="text-sm text-muted-foreground text-center mt-2 font-medium">{client.name}</span>
+                <span className="text-xs text-primary">{client.category}</span>
               </motion.div>
             ))}
           </div>
