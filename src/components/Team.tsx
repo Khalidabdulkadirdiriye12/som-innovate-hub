@@ -6,7 +6,7 @@ import teamMember3 from "@/assets/team-member-3.jpg";
 import teamMember4 from "@/assets/team-member-4.jpg";
 
 const Team = () => {
-  const team = [
+  const teamMembers = [
     {
       name: "Mohamed Ali",
       role: "CEO & Founder", 
@@ -74,7 +74,7 @@ const Team = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
+          {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
@@ -88,6 +88,7 @@ const Team = () => {
                   src={member.image}
                   alt={member.name}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
