@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import clientLogos from "@/assets/client-logos.jpg";
 
 const Clients = () => {
   const clients = [

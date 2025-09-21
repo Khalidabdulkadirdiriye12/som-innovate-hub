@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/som-logo.png";
 import aboutHero from "@/assets/about-hero.jpg";
 import productDataflow from "@/assets/product-dataflow.png";
 import productSecureVault from "@/assets/product-securevault.png";
@@ -145,48 +145,15 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Products Dropdown - Horizontal with Images */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
-              >
-                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
-                  Products <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
-                <AnimatePresence>
-                  {isProductsOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-96 bg-background border border-border rounded-lg shadow-lg z-50"
-                    >
-                      <div className="p-4">
-                        <div className="grid grid-cols-2 gap-3">
-                          {products.map((product) => (
-                            <div key={product.name} className="p-3 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <img 
-                                  src={product.image} 
-                                  alt={product.name} 
-                                  className="w-10 h-10 rounded object-cover flex-shrink-0"
-                                />
-                                <div>
-                                  <div className="font-medium text-sm text-foreground">{product.name}</div>
-                                  <div className="text-xs text-muted-foreground">{product.desc}</div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
+              <a href="#services" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                Services
+              </a>
+              <a href="#products" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                Products
+              </a>
+              <a href="#pricing" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                Pricing
+              </a>
               <a href="#team" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Team
               </a>
@@ -236,8 +203,8 @@ const Navbar = () => {
                 <a href="#services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Services
                 </a>
-                <a href="#products" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
-                  Products
+                <a href="#pricing" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                  Pricing
                 </a>
                 <a href="#team" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Team

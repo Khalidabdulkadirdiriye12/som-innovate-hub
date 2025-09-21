@@ -1,54 +1,54 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Github, Mail } from "lucide-react";
-import teamCEO from "@/assets/team-ceo.jpg";
-import teamCTO from "@/assets/team-cto.jpg";
-import teamDev from "@/assets/team-dev.jpg";
-import teamDesigner from "@/assets/team-designer.jpg";
+import teamMember1 from "@/assets/team-member-1.jpg";
+import teamMember2 from "@/assets/team-member-2.jpg";
+import teamMember3 from "@/assets/team-member-3.jpg";
+import teamMember4 from "@/assets/team-member-4.jpg";
 
 const Team = () => {
   const team = [
     {
-      name: "Samuel Ochieng",
+      name: "Mohamed Ali",
       role: "CEO & Founder", 
-      image: teamCEO,
-      bio: "Visionary leader with 8+ years in tech innovation and business strategy. Passionate about leveraging technology for social impact.",
+      image: teamMember1,
+      bio: "Visionary leader driving tech innovation in East Africa with passion for leveraging technology for social impact.",
       social: {
         linkedin: "#",
         twitter: "#", 
-        email: "samuel@sominnovations.xyz"
+        email: "mohamed@sominnovations.xyz"
       }
     },
     {
-      name: "Maria Wanjiku",
-      role: "CTO & Co-Founder",
-      image: teamCTO,
-      bio: "Expert data scientist and AI researcher with deep expertise in machine learning and scalable system architecture.",
+      name: "Hassan Omar",
+      role: "Chief Technology Officer",
+      image: teamMember2,
+      bio: "Expert in AI/ML and scalable system architecture with deep expertise in modern technology solutions.",
       social: {
         linkedin: "#",
         github: "#",
-        email: "maria@sominnovations.xyz"
+        email: "hassan@sominnovations.xyz"
       }
     },
     {
-      name: "David Kimani",
-      role: "Lead Software Engineer",
-      image: teamDev,
-      bio: "Full-stack developer specializing in modern web technologies and cloud-native applications. Open source contributor.",
+      name: "Abdi Rashid",
+      role: "Lead Developer",
+      image: teamMember3,
+      bio: "Full-stack developer with expertise in modern frameworks and cloud-native applications. Open source contributor.",
       social: {
         linkedin: "#",
         github: "#",
-        email: "david@sominnovations.xyz"
+        email: "abdi@sominnovations.xyz"
       }
     },
     {
-      name: "Grace Muthoni",
-      role: "Head of Design",
-      image: teamDesigner,
-      bio: "Creative UX/UI designer focused on creating intuitive and accessible digital experiences that delight users.",
+      name: "Ibrahim Yusuf",
+      role: "Business Strategist",
+      image: teamMember4,
+      bio: "Strategic thinker focused on business growth and innovation in the African tech ecosystem.",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "grace@sominnovations.xyz"
+        email: "ibrahim@sominnovations.xyz"
       }
     }
   ];
