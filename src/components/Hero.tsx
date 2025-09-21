@@ -49,9 +49,9 @@ const Hero = () => {
                 Leading Tech Solutions Provider
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Transform Your Business with{" "}
+                Empower Your Business with{" "}
                 <span className="text-primary relative">
-                  Advanced Tech
+                  Smart Solutions
                   <motion.div
                     className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full"
                     initial={{ scaleX: 0 }}
@@ -68,9 +68,9 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                Empowering businesses with cutting-edge cybersecurity, AI/ML solutions, 
-                custom software development, and comprehensive digital transformation services. 
-                Your trusted partner in the digital revolution.
+                From school management systems and POS solutions to AI integration and web development. 
+                We build custom software that transforms how you work, manage, and grow your business 
+                in the digital age.
               </p>
             </motion.div>
 
@@ -137,8 +137,8 @@ const Hero = () => {
                   <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <div className="w-10 h-10 bg-primary rounded-full animate-pulse" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">AI-Powered Solutions</h3>
-                  <p className="text-muted-foreground text-sm">Next-generation technology at your service</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">SOM Innovations</h3>
+                  <p className="text-muted-foreground text-sm">Complete business solutions at your service</p>
                 </div>
               </div>
               
