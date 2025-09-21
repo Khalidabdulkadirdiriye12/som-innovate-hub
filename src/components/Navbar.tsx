@@ -69,131 +69,12 @@ const Navbar = () => {
               <a href="#home" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Home
               </a>
-              
-              {/* About Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setIsAboutOpen(true)}
-                onMouseLeave={() => setIsAboutOpen(false)}
-              >
-                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
-                  About Us <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
-                <AnimatePresence>
-                  {isAboutOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg z-50"
-                    >
-                      <div className="p-6">
-                        <div className="flex items-start space-x-4">
-                          <img 
-                            src={aboutInfo.image} 
-                            alt="About us" 
-                            className="w-20 h-20 rounded-lg object-cover flex-shrink-0"
-                          />
-                          <div>
-                            <h3 className="font-semibold text-foreground mb-2">{aboutInfo.title}</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">{aboutInfo.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-              
-              {/* Services Dropdown - Horizontal */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
-              >
-                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
-                  Services <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
-                <AnimatePresence>
-                  {isServicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-[800px] bg-background border border-border rounded-lg shadow-lg z-50"
-                    >
-                      <div className="p-6">
-                        <div className="grid grid-cols-3 gap-6">
-                          {Object.entries(services).map(([category, items]) => (
-                            <div key={category}>
-                              <h3 className="font-semibold text-primary mb-3 text-sm">{category}</h3>
-                              <div className="space-y-2">
-                                {items.map((service) => (
-                                  <div key={service.name} className="p-2 rounded hover:bg-secondary/50 transition-smooth cursor-pointer">
-                                    <div className="font-medium text-xs text-foreground">{service.name}</div>
-                                    <div className="text-xs text-muted-foreground mt-1">{service.desc}</div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              
-              {/* Products Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
-              >
-                <button className="flex items-center text-slate-700 hover:text-primary font-medium transition-smooth">
-                  Products <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
-                <AnimatePresence>
-                  {isProductsOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg z-50"
-                    >
-                      <div className="p-4">
-                        <div className="grid grid-cols-2 gap-3">
-                          {products.map((product) => (
-                            <Link 
-                              key={product.name} 
-                              to={product.path}
-                              className="flex items-center space-x-3 p-2 rounded hover:bg-secondary/50 transition-smooth"
-                            >
-                              <img 
-                                src={product.image} 
-                                alt={product.name} 
-                                className="w-8 h-8 rounded object-cover"
-                              />
-                              <div>
-                                <div className="font-medium text-xs text-foreground">{product.name}</div>
-                                <div className="text-xs text-muted-foreground">{product.desc}</div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              <a href="#services" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              <Link to="/about" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+                About
+              </Link>
+              <Link to="/services" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Services
-              </a>
+              </Link>
               <a href="#products" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Products
               </a>
@@ -213,7 +94,13 @@ const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center space-x-4">
+            <Link 
+              to="/demo-request" 
+              className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+            >
+              Request Demo
+            </Link>
             <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
               Get Started
             </Button>
@@ -243,12 +130,12 @@ const Navbar = () => {
                 <a href="#home" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Home
                 </a>
-                <a href="#about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
-                  About Us
-                </a>
-                <a href="#services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                  About
+                </Link>
+                <Link to="/services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Services
-                </a>
+                </Link>
                 <a href="#products" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Products
                 </a>
@@ -264,6 +151,14 @@ const Navbar = () => {
                 <a href="#contact" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
                   Contact
                 </a>
+                <div className="px-3 py-2">
+                  <Link 
+                    to="/demo-request"
+                    className="w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors block text-center"
+                  >
+                    Request Demo
+                  </Link>
+                </div>
                 <div className="px-3 py-2">
                   <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
                     Get Started

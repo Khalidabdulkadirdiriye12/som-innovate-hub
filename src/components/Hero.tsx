@@ -140,15 +140,87 @@ const Hero = () => {
             className="relative hidden lg:block"
           >
             <div className="relative w-full h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 backdrop-blur-sm border border-primary/20">
-              <div className="absolute inset-4 bg-background/80 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-10 h-10 bg-primary rounded-full animate-pulse" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">SOM Innovations</h3>
-                  <p className="text-muted-foreground text-sm">Complete business solutions at your service</p>
+            <div className="absolute inset-4 bg-gradient-to-br from-background/90 via-background/80 to-background/90 rounded-xl flex items-center justify-center backdrop-blur-sm border border-primary/20 shadow-2xl">
+              <div className="text-center relative">
+                {/* Floating particles */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <motion.div
+                    animate={{ 
+                      y: [-20, 20, -20],
+                      opacity: [0.3, 0.7, 0.3]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-2 left-4 w-2 h-2 bg-primary rounded-full"
+                  />
+                  <motion.div
+                    animate={{ 
+                      y: [20, -20, 20],
+                      opacity: [0.4, 0.8, 0.4]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute bottom-4 right-6 w-1.5 h-1.5 bg-secondary rounded-full"
+                  />
+                  <motion.div
+                    animate={{ 
+                      x: [-15, 15, -15],
+                      opacity: [0.2, 0.6, 0.2]
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    className="absolute top-8 right-8 w-1 h-1 bg-primary/60 rounded-full"
+                  />
+                </div>
+
+                <motion.div 
+                  className="w-24 h-24 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <div className="absolute inset-2 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-full animate-pulse" />
+                  <motion.div 
+                    className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full relative z-10"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="absolute inset-1 bg-background/20 rounded-full" />
+                  </motion.div>
+                </motion.div>
+                <motion.h3 
+                  className="text-xl font-semibold text-foreground mb-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  SOM Innovations
+                </motion.h3>
+                <motion.p 
+                  className="text-muted-foreground text-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  Complete business solutions at your service
+                </motion.p>
+                
+                {/* Tech indicators */}
+                <div className="mt-4 flex justify-center space-x-2">
+                  <motion.div 
+                    className="w-2 h-2 bg-primary rounded-full"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                  />
+                  <motion.div 
+                    className="w-2 h-2 bg-secondary rounded-full"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                  />
+                  <motion.div 
+                    className="w-2 h-2 bg-primary/60 rounded-full"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
+                  />
                 </div>
               </div>
+            </div>
               
               {/* Tech Icons */}
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold shadow-lg">
