@@ -174,12 +174,13 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link 
-              to="/demo-request" 
-              className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+            <Button 
+              asChild
+              variant="secondary" 
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
             >
-              Request Demo
-            </Link>
+              <Link to="/demo-request">Request Demo</Link>
+            </Button>
             <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
               Get Started
             </Button>
@@ -205,40 +206,39 @@ const Navbar = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-background border-t border-border"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+              <div className="px-3 py-3 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
+                <a href="#home" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Home
                 </a>
-                <Link to="/about" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/about" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   About
                 </Link>
-                <Link to="/services" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/services" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Services
                 </Link>
-                <a href="#products" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <a href="#products" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Products
                 </a>
-                <Link to="/pricing" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/pricing" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Pricing
                 </Link>
-                <Link to="/team" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/team" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Team
                 </Link>
-                <Link to="/clients" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/clients" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Clients
                 </Link>
-                <Link to="/contact" className="block px-3 py-2 text-slate-700 hover:text-primary transition-smooth">
+                <Link to="/contact" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Contact
                 </Link>
-                <div className="px-3 py-2">
-                  <Link 
-                    to="/demo-request"
-                    className="w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors block text-center"
+                <div className="pt-2 space-y-2">
+                  <Button 
+                    asChild
+                    variant="secondary" 
+                    className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
                   >
-                    Request Demo
-                  </Link>
-                </div>
-                <div className="px-3 py-2">
+                    <Link to="/demo-request">Request Demo</Link>
+                  </Button>
                   <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
                     Get Started
                   </Button>
