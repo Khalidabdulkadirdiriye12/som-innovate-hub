@@ -9,49 +9,49 @@ import clientSamaha from "@/assets/client-samaha.png";
 const Clients = () => {
   const clients = [
     {
-      name: "Darul Ulum Educational Centre",
+      name: "Machadka Darul Uluum",
       logo: clientDarulUlum,
-      category: "Education"
+      category: "Waxbarasho"
     },
     {
-      name: "GuryoHub",
+      name: "Xaruunta Teknoolajiyada Guryo",
       logo: clientGuryoHub,
-      category: "Technology Hub"
+      category: "Teknoolajiyo Hub"
     },
     {
-      name: "Biyo-Diid",
+      name: "Shirkadda Biyo-Diid",
       logo: clientBiyoDiid,
-      category: "Business Solutions"
+      category: "Xalulka Ganacsiga"
     },
     {
-      name: "Almustaqbal University", 
+      name: "Jaamacadda Mustaqbal", 
       logo: clientMustaqbal,
-      category: "Higher Education"
+      category: "Waxbarashada Sare"
     },
     {
-      name: "Samaha Institute of Technology",
+      name: "Machadka Teknoolajiyada Samaha",
       logo: clientSamaha,
-      category: "Technology Institute"
+      category: "Institiutka Teknoolajiyada"
     }
   ];
 
   const testimonials = [
     {
-      name: "John Kamau",
-      position: "CTO, TechCorp Kenya",
-      content: "SOM Innovations transformed our entire data infrastructure. Their AI solutions increased our operational efficiency by 40% within the first quarter.",
+      name: "Ahmed Nur Maxamed",
+      position: "Agaasimaha Teknoolajiyada, Shirkadda Barakah Tech",
+      content: "SOM Innovations waxay beddeleen dhammaan nidaamka xogteenna. Xalulkooda AI wuxuu kordhiyey waxtarka hawlahayaga 40% afar bilood gudahood.",
       rating: 5
     },
     {
-      name: "Sarah Wanjiru",
-      position: "Founder, InnovateLab",
-      content: "The cybersecurity audit and implementation by SOM Innovations gave us complete peace of mind. Their team is professional, knowledgeable, and reliable.",
+      name: "Fadumo Cali Axmed", 
+      position: "Aasaasaha, Horumarinta Teknoolajiyada Somalia",
+      content: "Baaritaanka amniga ee SOM Innovations wuxuu na siiyey nabad-gal buuxa. Kooxdoodu waa xirfad leh, aqoon u leh, kalsoonida mudan.",
       rating: 5
     },
     {
-      name: "Michael Odhiambo",
-      position: "Operations Manager, DataFlow Solutions",
-      content: "Exceptional software development services. They delivered our custom CRM system on time and within budget. Highly recommend their expertise.",
+      name: "Cabdiraxmaan Maxamuud Cali",
+      position: "Maareeyaha Hawlaha, Xalulka Macluumaadka",
+      content: "Adeegyo aad u fiican oo horumarin software ah. Waxay ku dhameeyeen nidaamka CRM-ka waqtiga iyo miisaaniyada gudaheeda. Aad ayaan u talinayaa khibradooda.",
       rating: 5
     }
   ];
@@ -94,11 +94,11 @@ const Clients = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center group"
               >
-                <div className="bg-card rounded-xl shadow-soft p-4 group-hover:shadow-primary transition-all duration-300 w-full h-24 flex items-center justify-center">
+                <div className="bg-white rounded-xl shadow-lg p-6 group-hover:shadow-primary group-hover:scale-105 transition-all duration-300 w-full h-32 flex items-center justify-center border-2 border-gray-100 group-hover:border-primary/20">
                   <img 
                     src={client.logo} 
                     alt={client.name}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-all duration-300"
                     loading="lazy"
                   />
                 </div>
