@@ -9,6 +9,8 @@ import productDataflow from "@/assets/product-dataflow.png";
 import productSecureVault from "@/assets/product-securevault.png";
 import productCloudSync from "@/assets/product-cloudsync.png";
 import productAI from "@/assets/product-ai.png";
+import jobsLogo from "@/assets/jobs-portal-logo.png";
+import lmsLogo from "@/assets/lms-logo.png";
 
 const services = {
   "Core Solutions": [
@@ -35,10 +37,11 @@ const services = {
 };
 
 const products = [
-  { name: "Dugsi Manager", desc: "Complete school management system", image: productDataflow, path: "/product/dugsi-manager" },
-  { name: "Tayo POS", desc: "Modern point of sale solution", image: productSecureVault, path: "/product/tayo-pos" },
+  { name: "Dugsi Manager", desc: "Complete school management system", image: productDataflow, path: "https://dugsimanager.sominnovations.xyz" },
+  { name: "Tayo POS", desc: "Modern point of sale solution", image: productSecureVault, path: "https://pos.sominnovations.xyz" },
+  { name: "Jobs Portal", desc: "Comprehensive job recruitment platform", image: jobsLogo, path: "https://jobs.sominnovations.xyz" },
+  { name: "Learning Management System", desc: "Free online courses and education", image: lmsLogo, path: "https://lms.sominnovations.xyz" },
   { name: "AI Integration", desc: "Custom AI-powered business solutions", image: productAI, path: "/product/ai-integration" },
-  { name: "Website Development", desc: "Professional web development services", image: productCloudSync, path: "/services" },
 ];
 
 const aboutInfo = {
@@ -66,9 +69,9 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-slate-700 hover:text-primary font-medium transition-smooth">
+              <Link to="/#home" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 Home
-              </a>
+              </Link>
               <Link to="/about" className="text-slate-700 hover:text-primary font-medium transition-smooth">
                 About
               </Link>
@@ -134,21 +137,41 @@ const Navbar = () => {
                       <div className="p-4">
                         <div className="grid grid-cols-2 gap-3">
                           {products.map((product) => (
-                            <Link 
-                              key={product.name} 
-                              to={product.path}
-                              className="flex items-center space-x-3 p-2 rounded hover:bg-secondary/50 transition-smooth"
-                            >
-                              <img 
-                                src={product.image} 
-                                alt={product.name} 
-                                className="w-8 h-8 rounded object-cover"
-                              />
-                              <div>
-                                <div className="font-medium text-xs text-foreground">{product.name}</div>
-                                <div className="text-xs text-muted-foreground">{product.desc}</div>
-                              </div>
-                            </Link>
+                            product.path.startsWith('http') ? (
+                              <a
+                                key={product.name}
+                                href={product.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center space-x-3 p-2 rounded hover:bg-secondary/50 transition-smooth"
+                              >
+                                <img 
+                                  src={product.image} 
+                                  alt={product.name} 
+                                  className="w-8 h-8 rounded object-cover"
+                                />
+                                <div>
+                                  <div className="font-medium text-xs text-foreground">{product.name}</div>
+                                  <div className="text-xs text-muted-foreground">{product.desc}</div>
+                                </div>
+                              </a>
+                            ) : (
+                              <Link 
+                                key={product.name} 
+                                to={product.path}
+                                className="flex items-center space-x-3 p-2 rounded hover:bg-secondary/50 transition-smooth"
+                              >
+                                <img 
+                                  src={product.image} 
+                                  alt={product.name} 
+                                  className="w-8 h-8 rounded object-cover"
+                                />
+                                <div>
+                                  <div className="font-medium text-xs text-foreground">{product.name}</div>
+                                  <div className="text-xs text-muted-foreground">{product.desc}</div>
+                                </div>
+                              </Link>
+                            )
                           ))}
                         </div>
                       </div>
@@ -207,9 +230,9 @@ const Navbar = () => {
               className="md:hidden bg-background border-t border-border"
             >
               <div className="px-3 py-3 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
-                <a href="#home" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
+                <Link to="/#home" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   Home
-                </a>
+                </Link>
                 <Link to="/about" className="block px-3 py-3 text-sm text-slate-700 hover:text-primary hover:bg-secondary/30 rounded-md transition-smooth">
                   About
                 </Link>

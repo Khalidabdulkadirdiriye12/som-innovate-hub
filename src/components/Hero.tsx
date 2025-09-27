@@ -92,6 +92,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 group px-6 md:px-8"
+                onClick={() => window.open('https://wa.me/254794940900?text=Hello! I want to start a project with SOM Innovations', '_blank')}
               >
                 Start Your Project
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -101,6 +102,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 group px-6 md:px-8"
+                onClick={() => window.open('https://wa.me/254794940900?text=Hello! I would like to watch a demo of your solutions', '_blank')}
               >
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                 Watch Demo

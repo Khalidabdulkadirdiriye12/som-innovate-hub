@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import dugsiLogo from "@/assets/dugsi-manager-logo.png";
 import tayoLogo from "@/assets/tayo-pos-logo.jpg";
 import aiLogo from "@/assets/ai-assistant-logo.jpg";
+import jobsLogo from "@/assets/jobs-portal-logo.png";
+import lmsLogo from "@/assets/lms-logo.png";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -12,22 +14,46 @@ const Products = () => {
     {
       icon: dugsiLogo,
       name: "Dugsi Manager",
-      category: "School Management",
+      category: "School Management", 
       status: "Live Demo",
       description: "Comprehensive school management system for educational institutions.",
       features: ["Student Management", "Grade Tracking", "Parent Portal", "Fee Management"],
       price: "KSH 5,000",
-      productId: "dugsi-manager"
+      productId: "dugsi-manager",
+      url: "https://dugsimanager.sominnovations.xyz"
     },
     {
       icon: tayoLogo,
       name: "Tayo POS",
       category: "Point of Sale",
-      status: "Live Demo",
+      status: "Live Demo", 
       description: "Modern POS system for retail businesses and restaurants.",
       features: ["Inventory Management", "Sales Analytics", "Multi-payment", "Cloud-based"],
       price: "KSH 2,000",
-      productId: "tayo-pos"
+      productId: "tayo-pos",
+      url: "https://pos.sominnovations.xyz"
+    },
+    {
+      icon: jobsLogo,
+      name: "Jobs Portal",
+      category: "Recruitment Platform",
+      status: "Live Demo",
+      description: "Complete job recruitment and talent management platform.",
+      features: ["Job Listings", "Candidate Management", "Application Tracking", "Analytics"],
+      price: "KSH 8,000",
+      productId: "jobs-portal",
+      url: "https://jobs.sominnovations.xyz"
+    },
+    {
+      icon: lmsLogo,
+      name: "Learning Management System",
+      category: "Education Platform",
+      status: "Free Access",
+      description: "Free online learning platform with courses and educational resources.",
+      features: ["Course Management", "Progress Tracking", "Certificates", "Free Content"],
+      price: "Free",
+      productId: "lms",
+      url: "https://lms.sominnovations.xyz"
     },
     {
       icon: aiLogo,
@@ -110,9 +136,9 @@ const Products = () => {
                   <Button 
                     size="sm" 
                     className="bg-primary hover:bg-primary/90"
-                    onClick={() => navigate(`/product/${product.productId}`)}
+                    onClick={() => product.url ? window.open(product.url, '_blank') : navigate(`/product/${product.productId}`)}
                   >
-                    View Details
+                    {product.url ? 'Visit Platform' : 'View Details'}
                   </Button>
                   <Button 
                     size="sm" 
