@@ -142,63 +142,12 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.5 }}
             className="relative mt-8 lg:mt-0"
           >
-            <div className="relative w-full h-64 md:h-80 lg:h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 md:p-8 backdrop-blur-sm border border-primary/20 overflow-hidden">
-              <div className="absolute inset-2 md:inset-4 bg-gradient-to-br from-background/90 via-background/80 to-background/90 rounded-xl flex items-center justify-center backdrop-blur-sm border border-primary/20 shadow-2xl overflow-hidden">
-                {/* Tech Visualization Image */}
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <img 
-                    src={techVisualization} 
-                    alt="Advanced Technology Solutions" 
-                    className="w-full h-full object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30 rounded-lg" />
-                  
-                  {/* Overlay Content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center relative z-10">
-                      <motion.div 
-                        className="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-full flex items-center justify-center mx-auto mb-3 relative overflow-hidden backdrop-blur-sm"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      >
-                        <div className="absolute inset-2 bg-gradient-to-br from-primary/50 to-secondary/50 rounded-full animate-pulse" />
-                        <motion.div 
-                          className="w-8 md:w-10 h-8 md:h-10 bg-gradient-to-br from-primary to-secondary rounded-full relative z-10"
-                          animate={{ scale: [1, 1.1, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          <div className="absolute inset-1 bg-background/30 rounded-full" />
-                        </motion.div>
-                      </motion.div>
-                      
-                      <motion.h3 
-                        className="text-lg md:text-xl font-semibold text-foreground mb-2 drop-shadow-sm"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                      >
-                        SOM Innovations
-                      </motion.h3>
-                      <motion.p 
-                        className="text-muted-foreground text-sm drop-shadow-sm"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.7 }}
-                      >
-                        Complete business solutions at your service
-                      </motion.p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Tech Icons - Responsive positioning */}
-              <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4 w-12 md:w-16 h-12 md:h-16 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold shadow-lg text-sm md:text-base">
-                AI
-              </div>
-              <div className="absolute -bottom-2 md:-bottom-4 -left-2 md:-left-4 w-12 md:w-16 h-12 md:h-16 bg-secondary rounded-lg flex items-center justify-center text-secondary-foreground font-bold shadow-lg text-sm md:text-base">
-                ML
-              </div>
+            <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden border border-primary/20">
+              <img 
+                src={techVisualization} 
+                alt="Advanced Technology Solutions" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </motion.div>
         </div>
